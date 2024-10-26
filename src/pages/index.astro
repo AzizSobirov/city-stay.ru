@@ -1,0 +1,163 @@
+---
+import App from "../App.astro";
+import { Section, Image, Icon, H1, H2, H3, Card } from "ui";
+
+const services = [
+  {
+    id: 1,
+    title: "CityStay Китай-город квартира возле Кремля",
+    desc: "Москва, Яузская улица, 6-8 к 1 ст. 3&nbsp; <br /> м. Китай-город. 10 минут пешком <br />м. Таганская. 7 минут пешком <br />4 гостя <br />2 спальни<br />1 ванная комната",
+    price: "8 000 р.",
+    discount: "6 500 р.",
+  },
+  {
+    id: 2,
+    title: "6-ти комнатные апартаменты на Покровке с сауной",
+    desc: "Москва, Покрова 29<br>м. Чистый пруды. <br>м. Курская. <br>8 гостей и более<br>3спальни<br>2 ванных комнаты",
+    price: "30 000 р.",
+    discount: "20 000 р.",
+  },
+  {
+    id: 3,
+    title: "CityStay Стильная и уютная квартира в хамовниках",
+    desc: "Комсомольский проспект, 25к1<br>м. Фрунзенская. 2 минуты пешком<br>4 гостя<br>2 спальни<br>1 ванная комната",
+    price: "8 000 р.",
+    discount: "6 500 р.",
+  },
+  {
+    id: 4,
+    title: "CityStay Просторная квартира на набережной возле Красной площади",
+    desc: "Овчинниковская набережная 22/24 ст2<br>м. Новокузнецкая. 7 минут пешком<br>4 гостя<br>2 спальни<br>1 ванная комната",
+    price: "8 000 р.",
+    discount: "6 500 р.",
+  },
+  {
+    id: 1,
+    title: "CityStay Китай-город квартира возле Кремля",
+    desc: "Москва, Яузская улица, 6-8 к 1 ст. 3&nbsp; <br /> м. Китай-город. 10 минут пешком <br />м. Таганская. 7 минут пешком <br />4 гостя <br />2 спальни<br />1 ванная комната",
+    price: "8 000 р.",
+    discount: "6 500 р.",
+  },
+  {
+    id: 2,
+    title: "6-ти комнатные апартаменты на Покровке с сауной",
+    desc: "Москва, Покрова 29<br>м. Чистый пруды. <br>м. Курская. <br>8 гостей и более<br>3спальни<br>2 ванных комнаты",
+    price: "30 000 р.",
+    discount: "20 000 р.",
+  },
+  {
+    id: 3,
+    title: "CityStay Стильная и уютная квартира в хамовниках",
+    desc: "Комсомольский проспект, 25к1<br>м. Фрунзенская. 2 минуты пешком<br>4 гостя<br>2 спальни<br>1 ванная комната",
+    price: "8 000 р.",
+    discount: "6 500 р.",
+  },
+  {
+    id: 4,
+    title: "CityStay Просторная квартира на набережной возле Красной площади",
+    desc: "Овчинниковская набережная 22/24 ст2<br>м. Новокузнецкая. 7 минут пешком<br>4 гостя<br>2 спальни<br>1 ванная комната",
+    price: "8 000 р.",
+    discount: "6 500 р.",
+  },
+];
+---
+
+<App title="Главная">
+  <main>
+    <!-- Intro -->
+    <Section name="intro">
+      <Fragment slot="header">
+        <div class="bg-video">
+          <video autoplay muted loop>
+            <source src="./assets/videos/intro.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </Fragment>
+
+      <div class="intro__content">
+        <div class="top-title">СитистЭй аренда апартаментов</div>
+        <H1>Выбирайте Лучшие Апартаменты</H1>
+        <div class="bottom-title">
+          Для долгосрочной аренды, командировки или путешествия
+        </div>
+
+        <a href="#services" class="arrow-down">
+          <svg
+            role="presentation"
+            x="0px"
+            y="0px"
+            width="38.417px"
+            height="18.592px"
+            viewBox="0 0 38.417 18.592"
+            ><g
+              ><path
+                d="M19.208,18.592c-0.241,0-0.483-0.087-0.673-0.261L0.327,1.74c-0.408-0.372-0.438-1.004-0.066-1.413c0.372-0.409,1.004-0.439,1.413-0.066L19.208,16.24L36.743,0.261c0.411-0.372,1.042-0.342,1.413,0.066c0.372,0.408,0.343,1.041-0.065,1.413L19.881,18.332C19.691,18.505,19.449,18.592,19.208,18.592z"
+                fill="currentColor"></path></g
+            ></svg
+          >
+        </a>
+      </div>
+    </Section>
+
+    <!-- Services -->
+    <Section name="services" id="services">
+      <Fragment slot="header">
+        <div class="services__header">
+          <div class="seperator"></div>
+        </div>
+      </Fragment>
+
+      <div class="services__list">
+        {
+          services.map((item) => (
+            <Card>
+              <Fragment slot="header">
+                <Image src={`services/${item.id}.jpg`} />
+                <Image src={`services/${item.id}-2.jpg`} />
+              </Fragment>
+
+              <div class="card__title">{item.title}</div>
+              <p class="card__description" set:html={item.desc} />
+
+              <div class="card__price">
+                <span>{item.discount}</span>
+                <span class="line-through text-gray">{item.price}</span>
+              </div>
+
+              <a href="/service" class="btn variant-solid">
+                Подробнее
+              </a>
+            </Card>
+          ))
+        }
+      </div>
+    </Section>
+
+    <!-- Contacts -->
+    <Section name="contacts" data-animation="fade">
+      <Fragment slot="header">
+        <div class="bg-img">
+          <Image src="contacts-bg.jpg" />
+        </div>
+      </Fragment>
+
+      <div class="contacts__content">
+        <H2>Контакты</H2>
+        <div class="contacts__group">
+          <div class="font-bold">Телефон для оформления бронирования</div>
+          <a href="tel:+7925977775" title="Телефон">+7 (925) 975 77 25</a>
+        </div>
+        <div class="contacts__group">
+          <div>Телефоны по вопросам сотрудничества:</div>
+          <a href="tel:+79032685995" title="Телефон">+7 (903) 268 59 95</a>
+        </div>
+        <div class="contacts__group">
+          <div class="font-bold">Почта</div>
+          <a href="mailto:infocitystay@mail.ru" title="Почта">
+            infocitystay@mail.ru
+          </a>
+        </div>
+      </div>
+    </Section>
+  </main>
+</App>

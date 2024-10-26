@@ -1,0 +1,46 @@
+@import "base/mixins";
+
+@include font-face("TildaSans", 300);
+@include font-face("TildaSans", 400);
+@include font-face("TildaSans", 600);
+@include font-face("TildaSans", 600);
+@include font-face("TildaSans", 700);
+
+:root {
+  --primary: #020202;
+  --bg-color: #efefef;
+  --text-color: #000;
+  --gray: #bdbdbd;
+  --font-primary: "TildaSans", sans-serif;
+  --transition-ease: 0.3s ease;
+  --transition-bezier: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --content-width: 1180px;
+  --content-padding: 20px;
+}
+
+@include media("xl") {
+  :root {
+    --content-width: 1024px;
+  }
+}
+@include media("lg") {
+  :root {
+    --content-width: 768px;
+  }
+}
+@include media("md") {
+  :root {
+    --content-width: 640px;
+  }
+}
+@include media("sm") {
+  :root {
+    --content-width: 475px;
+  }
+}
+
+@import "base/normalize";
+@import "base/helpers";
+@import "ui/index";
+@import "components/index";
+@import "index";

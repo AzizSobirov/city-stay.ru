@@ -1,0 +1,88 @@
+---
+import { H2, Image, Icon } from "ui";
+---
+
+<header class="header">
+  <div class="container">
+    <a href="/" class="header__logo" title="logo">
+      <Image src="logo-white.png" alt="logo" />
+    </a>
+
+    <nav class="header__menu">
+      <div class="header__menu-bg"></div>
+
+      <div class="header__menu-content">
+        <div
+          class="header__menu-close"
+          role="button"
+          tabindex="0"
+          area-label="Закрыть меню"
+        >
+          <Icon src="close.svg" />
+        </div>
+
+        <a href="/" class="header__menu-logo" title="logo">
+          <Image src="logo-white.png" alt="logo" />
+        </a>
+
+        <ul class="menu">
+          <li class="menu-item"><a href="/">Главная</a></li>
+          <li class="menu-item"><a href="/">О нас</a></li>
+          <li class="menu-item"><a href="/">Москва</a></li>
+          <li class="menu-item"><a href="/">Сочи</a></li>
+          <li class="menu-item">
+            <a href="/upravlenie">Управление недвижимостью</a>
+          </li>
+          <li class="menu-item menu-item-has-children">
+            <a href="/services">Услуги</a>
+            <ul class="sub-menu">
+              <li class="menu-item"><a href="#">Хоумстейджинг</a></li>
+              <li class="menu-item">
+                <a href="#">Инвестиционная мебелировка</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Подбор недвижимости </a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-item"><a href="/contacts">Контакты</a></li>
+        </ul>
+
+        <div class="header__menu-contacts">
+          <div class="header__menu-socials">
+            <a href="#" title="phone">
+              <Icon src="phone.svg" />
+            </a>
+            <a href="#" title="mail">
+              <Icon src="mail.svg" />
+            </a>
+          </div>
+          <div
+            class="btn variant-outline"
+            role="button"
+            tabindex="0"
+            area-label="Обратный звонок"
+            data-modal="form"
+          >
+            Обратный звонок
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header__actions">
+      <div
+        class="btn variant-white"
+        role="button"
+        tabindex="0"
+        aria-label="Обратный звонок"
+        data-modal="form"
+      >
+        Обратный звонок
+      </div>
+      <div class="menu-btn" role="button" aria-label="Меню" tabindex="0">
+        <Icon src="menu.svg" />
+      </div>
+    </div>
+  </div>
+</header>
